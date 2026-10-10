@@ -262,7 +262,7 @@ implement automated unit test cases early in the development process to verify t
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[orking on this assignment gave me a practical and clear understanding of Java threads and how they execute concurrent tasks in an operating system environment. I found Thread.sleep() very useful for accurately simulating the CPU time quantum execution slice within a Round-Robin scheduling system. Using Thread.join() was also essential because it forced the main scheduler thread to pause and wait for each process thread to finish execution before safely generating final metrics. I also observed how threads yield execution control back to the ready queue once their assigned time quantum expires. Overall, writing this code made theoretical concurrency and scheduling concepts much easier to understand than simply reading about them.]
 
 ## Question 2: What was the most challenging part of this assignment?
 
@@ -270,7 +270,7 @@ implement automated unit test cases early in the development process to verify t
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[the hardest part was calculating the exact waiting time for each process across multiple Round-Robin context switches. Since processes yield the CPU several times, tracking pure waiting time without including CPU execution time took a lot of trial and error. I had trouble knowing when to save timestamps using System.currentTimeMillis() as processes entered or left the ready queue. Processes like P2 kept yielding and returning, which messed up my initial time totals. Fixing this required following process state changes step-by-step to make sure the final summary table remained accurate. Once I corrected the timestamp collection points, the waiting and turnaround times matched the expected values perfectly.]
 
 ## Question 3: How did you overcome the challenges you faced?
 
@@ -278,7 +278,7 @@ implement automated unit test cases early in the development process to verify t
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[I solved these technical issues by testing my code in small steps rather than changing everything at once. To trace timing discrepancies, I added simple System.out.println statements to monitor process state changes and queue movements line-by-line. Re-compiling and running the program after small edits helped me see how context switch counters and queue ordering changed in real time. I also checked the README requirements again to match my terminal output with the expected results. Testing frequently made it much easier to isolate logical errors and fix them before moving to the next feature. This disciplined debugging method gave me full confidence in the accuracy of my final scheduling implementation.]
 
 ## Question 4: How can you apply multithreading concepts in real-world applications?
 
@@ -286,19 +286,19 @@ implement automated unit test cases early in the development process to verify t
 
 **Your Answer:** *(5-7 sentences)*
 
-[Write your answer here.]
+[Multithreading is critical in modern applications where high speed and quick response times matter, like video games and web browsers. In game engines, physics calculations, graphics rendering, and player input run on separate threads so the screen never freezes during heavy background processing. Web browsers also use multithreading to manage individual browser tabs in separate execution threads, preventing a crash on one web page from bringing down the whole application window. Even simple mobile apps use background threads to download data over networks while keeping the user interface smooth and responsive to touch gestures. Building this Round-Robin scheduler directly demonstrated how operating systems prioritize and allocate CPU time slices across concurrent threads in real time. Understanding these concurrency mechanics will help me design responsive and multi-tasking applications in future engineering projects.]
 
 ### Optional: What would you like to learn more about?
 
-[Any topics related to threading or operating systems that you're curious about?]
+[I would like to learn more about advanced CPU scheduling algorithms and thread synchronization mechanisms . ]
 
 ### Optional: How confident do you feel about multithreading concepts now?
 
-[Beginner / Intermediate / Confident. What do you understand well? What needs more practice?]
+[Intermediate. I feel confident with thread creation, basic lifecycle management, and CPU scheduling mechanics like time slicing and context switching, but I would like more practice with  thread synchronization and deadlocks.]
 
 ### Optional: Feedback on the assignment
 
-[Any comments? Was it helpful? Too easy or hard? Suggestions?]
+[This assignment was very practical and helped connect theoretical OS scheduling concepts with real Java code. However, it was quite challenging and took a lot of time to debug time tracking]
 
 ---
 
