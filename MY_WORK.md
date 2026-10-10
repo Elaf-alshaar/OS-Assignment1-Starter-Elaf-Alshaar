@@ -29,11 +29,11 @@
 
 | Field | Your Answer |
 |-------|-------------|
-| **Full Name** | [Write your full name here] |
-| **Student ID** | [Write your student ID here] |
-| **University Email** | [yourid]@std.psau.edu.sa |
-| **GitHub Username** | [your-github-username] |
-| **Repository Link** | [Paste your repository link here] |
+| **Full Name** | [Elaf Mohammed Alshaar] |
+| **Student ID** | [446052680 ] |
+| **University Email** | [446052680 ]@std.psau.edu.sa |
+| **GitHub Username** | [Elaf-alshaar ] |
+| **Repository Link** | [https://github.com/Elaf-alshaar/OS-Assignment1-Starter-Elaf-Alshaar ] |
  
 ---
 
@@ -129,81 +129,104 @@
 
 ## Your Development Log
 
-### Entry 1 - [Date and Time]
-**What I did**:
+### Entry 1 - [October 4, 2026, 7:15 PM]
+**What I did**: set up my development environment , created a github account , configured my student id , and ran the initial project. 
 
 **Details**:
+- created my GitHub account using my university email and installed VS Code .
+- installed the java extension pack in vs code.
+- connected the VS code with GitHub and cloned the starter repository.
+- updated the studentID variable in SchedulerSimulation.java to my student ID
+- Committed and pushed changes: (Update student ID for random number generator)
 
 **Challenges**:
+setting up the development environment , including software installations, Git authorization, and resolving extension configuration path errors in VS Code.
 
 **Solution**:
+followed step-by-step installation guides for Git and VS Code, authenticated my GitHub account via VS Code
 
 **Time spent**:
+2hours
+---
+
+### Entry 2 - [October 4, 2026, 10:00 PM]
+**What I did**: implemented feature 1 'Process Priority field'
+
+**Details**:
+- add a priority attribute to the process class (1-10)
+- update the constructor of  process  to accept priority and intialize it
+- updated main() in SchedulerSimulation.java to generate random priorities for each process
+- display process priorities when processes enter the queue
+- Committed and pushed changes: (Feature 1: Added process priority)
+
+**Challenges**:
+ensuring that displaying priority levels did not alter or reorder the FIFO queue structure, as Round Robin must preserve strict arrival order.
+
+**Solution**:
+kept process priority purely as a descriptive metadata property within the Process class
+
+**Time spent**:
+1 hour 15 minutes
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**:
+### Entry 3 - [October 6, 2026, 6:30 PM]
+**What I did**: implemented feature 2 'Context Switch Counter'
 
 **Details**:
-
+- declared a static counter variable contextSwitchesCounter in the SchedulerSimulation class
+- incremented contextSwitchesCounter whenever process started executing on CPU.
+- added a console print statement inside the ending frame to display total context switches
+- Committed and pushed changes: (Feature 2: Implemented context switch counter)
 **Challenges**:
+determining the exact location in the execution loop where the counter should be incremented to ensure every context switch is accurately recorded
 
 **Solution**:
+ placed contextSwitchesCounter++ right before a process thread starts running its assigned time quantum in the main scheduling loop.
 
 **Time spent**:
+1 hour 50 minutes
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**:
+### Entry 4 - [October 10, 2026, 5:00 PM]
+**What I did**: implemented Feature 3 'Waiting Time, Turnaround Time tracking, and Summary Table'
 
 **Details**:
+- added waitingTime and readyQueueEntryTime fields to the Process class
+- updated time tracking logic to measure exact waiting intervals using 
+  System.currentTimeMillis() whenever processes enter or yield the ready queue.
+- calculated Turnaround Time for each process (TAT= WT+ burst time)
+- built an allProcesses list to display a formatted summary table sorted sequentially from P1 to P20 upon simulation completion
+- - Committed and pushed changes: (Feature 3: Track waiting time and turnaround time with summary table)
 
 **Challenges**:
-
+avoiding inaccurate waiting time calculations caused by processes yielding the CPU and re-entering the queue multiple times during Round-Robin context switches
 **Solution**:
+Reset readyQueueEntryTime upon every queue re-entry and accumulated incremental waiting times before each CPU execution slice.
 
 **Time spent**:
-
+3 hour 20 minutes
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**:
+### Entry 5 - [October 5, 2026, 2:00 AM]
+**What I did**: refactored random priority generation using the student ID seed and finalized the project execution.
 
 **Details**:
-
+- refactored the priority assignment logic to utilize 1+random.nextInt(10)
+- executed full test runs in VS Code terminal to verify that priority values, context switch counts,tat matched expected calculations 
+  
 **Challenges**:
+ensuring the random number generator strictly shared the same seeded Random object across all process generation loops without resetting the seed state
 
 **Solution**:
+Used a single Random random = new Random(studentID); instance passed consistently throughout process creation and attribute initialization
 
 **Time spent**:
-
+1 hour
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**:
 
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
-
----
-
-### Entry 6 - [Optional - Date and Time]
-**What I did**:
-
-**Details**:
-
-**Challenges**:
-
-**Solution**:
-
-**Time spent**:
 
 ---
 
@@ -211,14 +234,16 @@
 
 > 💡 **TIP:** Fill this in **last**, after all entries are written.
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [9.25 hours]
 
 **Most challenging part**:
+ calculating and accumulating process waiting time across multiple context switches during Round-Robin execution without including active CPU execution time
 
 **Most interesting learning**:
+understanding how Java thread states (start, execution, yielding, and join) map directly to operating system process scheduling concepts
 
 **What I would do differently next time**:
-
+implement automated unit test cases early in the development process to verify timing and state metrics after each code refactoring session instead of relying solely on end-to-end terminal output checks.
 ---
 
 # Part B: Reflection (0.5 mark)
